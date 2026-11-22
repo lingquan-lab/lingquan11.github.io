@@ -1,0 +1,4 @@
+# 补充Chirpy zh-CN语言包（与主题自带文件深度合并）：
+# about页沿用原front matter「title: 关于」，Chirpy以标题作为tabs键查找页面<title>，此处补上该键
+tabs:
+  关于: 关于
