@@ -1,6 +1,10 @@
-# 侧边栏底部联系方式（Chirpy）：仅保留GitHub与RSS
+# 侧边栏底部联系方式（Chirpy）：GitHub、邮箱、RSS
 - type: github
   icon: "fab fa-github"
+
+- type: email
+  icon: "fas fa-envelope"
+  noblank: true # 在当前标签页打开
 
 - type: rss
   icon: "fas fa-rss"

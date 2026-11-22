@@ -22,6 +22,7 @@ github:
 
 social:
   name: 颜俊臣
+  email: 3181958599@qq.com # 侧边栏邮件按钮（Chirpy 拆段输出，防简单爬取）
   links:
     - https://github.com/lingquan11
 
@@ -31,6 +32,13 @@ toc: true # 文章目录
 
 comments:
   provider: # 未启用评论
+
+# 字体、图标与前端库全部站内托管（assets/lib 子模块：cotes2020/chirpy-static-assets），
+# 不依赖 Google Fonts / jsDelivr，国内访问不卡
+assets:
+  self_host:
+    enabled: true
+    env: # 留空 = 本地与线上都启用
 
 pwa:
   enabled: true
