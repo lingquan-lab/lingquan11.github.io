@@ -3,6 +3,7 @@ layout: post
 title: "科研方向探索Skill：ai-chip-explorer第一版开源"
 date: 2026-10-29 20:16:00 +0800
 categories: 项目实录
+tags: [Agent, 开源]
 ---
 
 最近做了一个科研方向探索 Skill，功能很丰富，你可以使用Ta：

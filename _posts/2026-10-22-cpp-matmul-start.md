@@ -3,6 +3,7 @@ layout: post
 title: "项目起点：C++矩阵乘法性能实验"
 date: 2026-10-22 18:01:00 +0800
 categories: 项目实录
+tags: [C++, 矩阵乘法, 性能优化]
 ---
 
 我在Github上面建立了个人项目仓库
