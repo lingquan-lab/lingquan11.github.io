@@ -267,6 +267,17 @@ h4,
   }
 }
 
+/* 文章底部「相关文章」卡片：去掉阴影后补细框，悬停绿框（浅色模式下否则看不出卡片边界） */
+#related-posts .card {
+  border: 1px solid var(--zq-line);
+  box-shadow: none;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--zq-accent);
+  }
+}
+
 /* 分页按钮 */
 .pagination .page-item .page-link {
   border-radius: 0;
