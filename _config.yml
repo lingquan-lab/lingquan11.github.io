@@ -32,8 +32,24 @@ social:
 theme_mode: # 留空 = 跟随系统，并显示深色/浅色切换按钮
 toc: true # 文章目录
 
+# 评论：giscus（基于原仓 GitHub Discussions，访客用 GitHub 账号留言）
 comments:
-  provider: # 未启用评论
+  provider: giscus
+  giscus:
+    repo: lingquan11/lingquan11.github.io
+    repo_id: R_kgDOV2G_sg
+    category: Announcements # 只有仓库所有者和 giscus 能新建讨论，访客只能回复
+    category_id: DIC_kwDOV2G_ss4DLt1X
+    mapping: pathname # 每篇文章按网址路径对应一个讨论
+    strict: "1" # 按路径哈希精确匹配，避免相似路径串到同一讨论
+    input_position: bottom
+    lang: zh-CN
+    reactions_enabled: "1"
+
+# 统计：GoatCounter（不用 cookie，只在线上构建中加载）
+analytics:
+  goatcounter:
+    id: lingquan11
 
 # 字体、图标与前端库全部站内托管（assets/lib 子模块：cotes2020/chirpy-static-assets），
 # 不依赖 Google Fonts / jsDelivr，国内访问不卡
@@ -77,7 +93,7 @@ defaults:
       type: posts
     values:
       layout: post
-      comments: false
+      comments: true # 文章底部显示 giscus 评论
       toc: true
       math: true # README约定公式用 $$...$$ / $...$
   - scope:
