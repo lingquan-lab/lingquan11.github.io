@@ -22,6 +22,7 @@ github:
 
 social:
   name: 颜俊臣
+  email: 3181958599@qq.com # 侧边栏邮件按钮（Chirpy 拆段输出，防简单爬取）
   links:
     - https://github.com/lingquan11
 
