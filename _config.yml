@@ -16,6 +16,8 @@ baseurl: ""
 
 # ---- 侧边栏头像与社交链接 ----
 avatar: https://github.com/lingquan11.png
+# 链接分享卡片图（1200×630），站点图标在 assets/img/favicons/
+social_preview_image: /assets/img/social-preview.png
 
 github:
   username: lingquan11
