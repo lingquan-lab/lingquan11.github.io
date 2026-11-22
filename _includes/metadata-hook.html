@@ -1,0 +1,19 @@
+<!--
+  默认深色、保留切换：
+  仅在读者第一次访问时把偏好记为 dark（等同于手动选了"深色"）。
+  之后读者选浅色或"跟随系统"都会被 Chirpy 正常记住，本脚本不再干预。
+  不直接写死 data-bs-theme：Chirpy 启动时若已有该属性会禁用切换按钮。
+-->
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem('zq-theme-init')) return;
+      localStorage.setItem('zq-theme-init', '1');
+      if (localStorage.getItem('theme')) return;
+      localStorage.setItem('theme', 'dark');
+      var root = document.documentElement;
+      root.setAttribute('data-bs-theme', 'dark');
+      root.setAttribute('data-theme-persisted', '');
+    } catch (e) {}
+  })();
+</script>

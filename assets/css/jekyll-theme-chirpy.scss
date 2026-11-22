@@ -1,0 +1,314 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* ==========================================================================
+   零醛 · 技术实录 —— 站点视觉
+   设计语言参考硬件厂商官网：黑底、高对比、单一亮绿强调色、直角、粗标题。
+   绿色只用于强调（链接、激活态、悬停、标题竖条），不大面积铺色。
+   强调绿为本站自定色值，非任何品牌色。
+   ========================================================================== */
+
+/* ---------- 深色（默认） ---------- */
+:root[data-bs-theme='dark'] {
+  --zq-accent: #8bc93a; /* 装饰与文字共用：黑底对比度 10:1 */
+  --zq-accent-text: #8bc93a;
+  --zq-accent-soft: rgb(139 201 58 / 14%);
+  --zq-line: #262626;
+
+  --main-bg: #000000;
+  --main-border-color: var(--zq-line);
+  --mask-bg: #1a1a1a;
+
+  --text-color: #cfcfcf;
+  --text-muted-color: #8c8c8c;
+  --text-muted-highlight-color: #b5b5b5;
+  --heading-color: #ffffff;
+  --label-color: #a8a8a8;
+  --blockquote-border-color: var(--zq-accent);
+  --blockquote-text-color: #9a9a9a;
+  --link-color: var(--zq-accent-text);
+  --link-underline-color: rgb(139 201 58 / 45%);
+
+  --button-bg: #0d0d0d;
+  --btn-border-color: #2e2e2e;
+  --btn-backtotop-color: #e6e6e6;
+  --btn-backtotop-border-color: #2e2e2e;
+
+  --menu-bg: #111111;
+  --menu-border-color: #2e2e2e;
+  --menu-highlight-bg: var(--zq-accent-soft);
+
+  --site-title-color: #ffffff;
+  --site-subtitle-color: #9a9a9a;
+  --sidebar-bg: #0a0a0a;
+  --sidebar-border-color: var(--zq-line);
+  --sidebar-muted-color: #9a9a9a;
+  --sidebar-active-color: #ffffff;
+  --sidebar-hover-bg: #161616;
+  --sidebar-btn-bg: #141414;
+  --sidebar-btn-color: #9a9a9a;
+  --avatar-border-color: var(--zq-accent);
+
+  --topbar-bg: rgb(0 0 0 / 88%);
+  --topbar-text-color: #e6e6e6;
+  --search-border-color: #2e2e2e;
+  --search-icon-color: #8c8c8c;
+  --input-focus-border-color: var(--zq-accent);
+
+  --post-list-text-color: #a8a8a8;
+  --btn-paginator-hover-color: #1a1a1a;
+
+  --toc-highlight: var(--zq-accent);
+  --tag-hover: var(--zq-accent-soft);
+  --tag-border: #333333;
+  --card-bg: #0f0f0f;
+  --card-hover-bg: #161616;
+  --card-header-bg: #141414;
+  --card-shadow: none;
+
+  --categories-border: var(--zq-line);
+  --categories-hover-bg: #161616;
+  --timeline-node-bg: var(--zq-accent);
+  --timeline-color: #333333;
+
+  --highlight-bg-color: #0d0d0d;
+  --language-border-color: #262626;
+  --inline-code-bg: rgb(139 201 58 / 10%);
+  --clipboard-checked-color: var(--zq-accent);
+
+  #archives li:nth-child(odd) {
+    background-image: none;
+    background-color: #0a0a0a;
+  }
+}
+
+/* ---------- 浅色（可切换） ---------- */
+:root[data-bs-theme='light'] {
+  --zq-accent: #6fa81e; /* 装饰用：竖条、边框、节点 */
+  --zq-accent-text: #3d6b0e; /* 文字用：白底对比度 6:1 */
+  --zq-accent-soft: rgb(111 168 30 / 12%);
+  --zq-line: #e3e3e3;
+
+  --main-bg: #ffffff;
+  --main-border-color: var(--zq-line);
+
+  --text-color: #2b2b2b;
+  --text-muted-color: #6b6b6b;
+  --heading-color: #000000;
+  --blockquote-border-color: var(--zq-accent);
+  --link-color: var(--zq-accent-text);
+  --link-underline-color: rgb(61 107 14 / 35%);
+
+  --btn-border-color: #d9d9d9;
+  --menu-highlight-bg: var(--zq-accent-soft);
+
+  --site-title-color: #000000;
+  --site-subtitle-color: #555555;
+  --sidebar-bg: #f4f4f4;
+  --sidebar-border-color: var(--zq-line);
+  --sidebar-muted-color: #4a4a4a;
+  --sidebar-active-color: #000000;
+  --sidebar-hover-bg: #e9e9e9;
+  --avatar-border-color: var(--zq-accent);
+
+  --topbar-bg: rgb(255 255 255 / 92%);
+  --topbar-text-color: #1a1a1a;
+  --search-border-color: #d9d9d9;
+  --input-focus-border-color: var(--zq-accent);
+
+  --toc-highlight: var(--zq-accent-text);
+  --tag-hover: var(--zq-accent-soft);
+  --card-hover-bg: #f7f7f7;
+  --card-shadow: none;
+  --timeline-node-bg: var(--zq-accent);
+  --inline-code-bg: rgb(111 168 30 / 10%);
+}
+
+/* ---------- 结构：两种模式通用 ---------- */
+
+/* 直角：卡片、按钮、输入框、代码块、标签、弹层 */
+.card,
+.card-wrapper,
+.post-preview,
+.btn,
+.dropdown-menu,
+.dropdown-item,
+#search,
+#search-input,
+.post-tag,
+.tag,
+div.highlighter-rouge,
+figure.highlight,
+code,
+kbd,
+.popover,
+.toast,
+#toc-popup,
+img.preview-img,
+.preview-img img {
+  border-radius: 0 !important;
+}
+
+::selection {
+  background: var(--zq-accent);
+  color: #000000;
+}
+
+/* 标题：更粗、更白 */
+h1,
+h2,
+h3,
+h4,
+.card-title,
+.dynamic-title {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* 正文二级标题：左侧绿色竖条 */
+.content h2 {
+  border-left: 4px solid var(--zq-accent);
+  padding-left: 0.65rem;
+}
+
+/* 正文链接：绿色，悬停加粗下划线 */
+.content a:not(.img-link):not(.anchor) {
+  color: var(--zq-accent-text);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline-color);
+  text-underline-offset: 0.2em;
+  border-bottom: none;
+
+  &:hover {
+    text-decoration-color: var(--zq-accent);
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* 侧边栏：头像方形绿框，标题粗体，激活项绿色竖条 */
+#sidebar {
+  #avatar {
+    border-radius: 0 !important;
+    box-shadow: 0 0 0 2px var(--zq-accent);
+
+    img {
+      border-radius: 0;
+    }
+  }
+
+  .site-title {
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  ul li.nav-item a.nav-link {
+    border-radius: 0;
+  }
+
+  /* 底部按钮（深浅切换、GitHub、邮箱、RSS）与下拉菜单：方形 */
+  .sidebar-bottom > a,
+  .sidebar-bottom #mode-toggle,
+  .sidebar-bottom .dropdown-menu,
+  .sidebar-bottom .dropdown-item {
+    border-radius: 0 !important;
+  }
+
+  .nav-item.active .nav-link {
+    color: var(--sidebar-active-color);
+    background-color: var(--sidebar-hover-bg);
+    box-shadow: inset 3px 0 0 var(--zq-accent);
+
+    i {
+      color: var(--zq-accent);
+    }
+  }
+
+  .sidebar-bottom a:hover,
+  #mode-toggle:hover {
+    color: var(--zq-accent) !important;
+  }
+}
+
+/* 顶栏：实底 + 细分隔线 */
+#topbar-wrapper {
+  border-bottom: 1px solid var(--zq-line);
+  backdrop-filter: none;
+}
+
+/* 首页文章卡片：细边框，悬停时绿色边框 + 左侧竖条 */
+#post-list .card-wrapper {
+  background-color: var(--card-bg);
+  border: 1px solid var(--zq-line);
+  box-shadow: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: var(--zq-accent);
+    box-shadow: inset 4px 0 0 var(--zq-accent);
+  }
+
+  .card-title {
+    color: var(--heading-color);
+  }
+}
+
+/* 分页按钮 */
+.pagination .page-item .page-link {
+  border-radius: 0;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--zq-accent);
+  border-color: var(--zq-accent);
+  color: #000000;
+}
+
+/* 标签与分类：直角细框，悬停绿框 */
+.post-tag,
+.tag {
+  border: 1px solid var(--tag-border, var(--zq-line));
+
+  &:hover {
+    border-color: var(--zq-accent);
+    color: var(--zq-accent-text) !important;
+  }
+}
+
+.categories.card {
+  border: 1px solid var(--zq-line);
+}
+
+/* 引用块：绿色竖条 */
+blockquote {
+  border-left: 4px solid var(--zq-accent) !important;
+}
+
+/* 页脚：顶部细线 */
+footer {
+  border-top: 1px solid var(--zq-line);
+}
+
+/* 回到顶部按钮 */
+#back-to-top {
+  border-radius: 0;
+
+  &:hover {
+    border-color: var(--zq-accent);
+    color: var(--zq-accent);
+  }
+}
