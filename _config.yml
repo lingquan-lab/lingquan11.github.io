@@ -1,15 +1,121 @@
+# 站点配置：Chirpy主题（jekyll-theme-chirpy ~> 7.6）
+# 参考：https://github.com/cotes2020/chirpy-starter/blob/main/_config.yml
+
+theme: jekyll-theme-chirpy
+
+# ---- 站点信息（沿用原minima配置） ----
 title: 零醛 · 技术实录
+tagline: AI Infra学习与项目实录 # 侧边栏头像下方的简介
 description: AI Infra学习与项目实录：CUDA、算子优化与GPU性能工程的公开记录
 author: 颜俊臣
 lang: zh-CN
 timezone: Asia/Shanghai
-theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+
+url: "https://lingquan11.github.io"
+baseurl: ""
+
+# ---- 侧边栏头像与社交链接 ----
+avatar: https://github.com/lingquan11.png
+
+github:
+  username: lingquan11
+
+social:
+  name: 颜俊臣
+  links:
+    - https://github.com/lingquan11
+
+# ---- 外观 ----
+theme_mode: # 留空 = 跟随系统，并显示深色/浅色切换按钮
+toc: true # 文章目录
+
+comments:
+  provider: # 未启用评论
+
+pwa:
+  enabled: true
+  cache:
+    enabled: true
+
+paginate: 10
+
+# ---- Markdown与代码高亮（沿用GFM输入） ----
 markdown: kramdown
 kramdown:
   input: GFM
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+# 沿用原文章链接格式，旧链接不失效
 permalink: /:year/:month/:day/:title/
-minima:
-  date_format: "%Y-%m-%d"
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+      math: true # README约定公式用 $$...$$ / $...$
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+  # about页原文件原样移入_tabs，标签图标与顺序在此配置
+  - scope:
+      path: _tabs/about.md
+    values:
+      icon: fas fa-info-circle
+      order: 4
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - purgecss.js
+  - "*.config.js"
+  - "package*.json"
+  - vendor
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
