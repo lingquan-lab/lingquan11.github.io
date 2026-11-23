@@ -1,0 +1,30 @@
+{%- comment -%}
+  项目卡片：数据来自 _data/projects.yml。HTML 行首不要缩进，否则 Markdown 会把它当代码块。
+{%- endcomment -%}
+<div class="zq-projects">
+{%- for p in site.data.projects -%}
+<article class="zq-project zq-status-{{ p.status_kind | default: 'done' }}">
+<div class="zq-project-head"><span class="zq-badge">{{ p.status }}</span>{% if p.meta != "" %}<span class="zq-project-meta">{{ p.meta }}</span>{% endif %}</div>
+<h3 class="zq-project-title" data-toc-skip>{{ p.title }}</h3>
+{%- if p.metric -%}
+<div class="zq-metric"><span class="zq-metric-value">{{ p.metric.value }}</span><span class="zq-metric-label">{{ p.metric.label }}</span></div>
+{%- endif -%}
+<ul class="zq-project-points">
+{%- for b in p.bullets -%}
+<li>{{ b | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>
+{%- endfor -%}
+</ul>
+{%- if p.stack.size > 0 -%}
+<div class="zq-chips">{% for s in p.stack %}<span class="zq-chip">{{ s }}</span>{% endfor %}</div>
+{%- endif -%}
+{%- if p.links.size > 0 -%}
+<div class="zq-project-links">
+{%- for l in p.links -%}
+{%- assign first = l.url | slice: 0 -%}
+<a href="{% if first == '/' %}{{ l.url | relative_url }}{% else %}{{ l.url }}{% endif %}">{{ l.text }} <span aria-hidden="true">›</span></a>
+{%- endfor -%}
+</div>
+{%- endif -%}
+</article>
+{%- endfor -%}
+</div>

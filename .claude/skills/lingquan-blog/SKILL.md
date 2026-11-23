@@ -64,17 +64,19 @@ muse 知道仓主最近在忙什么、学了什么、什么时候考试、哪个
 | 想改什么 | 改哪里 | 备注 |
 |---|---|---|
 | 标题、简介、头像、邮箱、评论、统计 | `_config.yml` | 评论是 giscus（原仓 Discussions，Announcements 分类）；统计是 GoatCounter（站点代码 `lingquan11`） |
-| 颜色、圆角、全站样式 | `assets/css/jekyll-theme-chirpy.scss` | 黑底亮绿的硬件厂商风格；强调绿 `#8bc93a`，浅色模式文字绿 `#3d6b0e`。只借鉴设计语言，不用任何公司的标志、名称、专有字体或品牌色值 |
+| 颜色、圆角、全站样式 | `assets/css/jekyll-theme-chirpy.scss` | 配色与版式全面参考英伟达官网（仓主 2026-11-23 决定）：纯黑底、英伟达绿 `#76B900`；浅色模式下文字用同色相加深的 `#4a7a00`（`#76B900` 在白底对比度不够）。**不用**英伟达的标志、名称、专有字体（NVIDIA Sans）和官网图片 |
+| 首页开场区（大数字、按钮） | `_data/home.yml` | 模板是 `_includes/home-hero.html`。每个数字必须注明出处；措辞贴着关于页 |
+| 项目页内容 | `_data/projects.yml`（卡片）、`_data/milestones.yml`（时间线） | `_tabs/projects.md` 只负责排版；模板是 `_includes/project-cards.html`、`project-timeline.html` |
 | 首次访问默认深色 | `_includes/metadata-hook.html` | 不能直接写死 `data-bs-theme`，那样会禁用深浅切换 |
 | 评论区深色主题 | `_includes/comments/giscus.html` | 覆盖主题原模板，只改了一行（`transparent_dark`） |
-| 项目页 / 关于页 | `_tabs/projects.md` / `_tabs/about.md` | 项目页由维护者按事实维护；关于页是仓主本人语气，改动必须经仓主确认 |
+| 关于页 | `_tabs/about.md` | 仓主本人语气，改动必须经仓主确认（项目页见上一行，由维护者按事实维护） |
 | 侧边栏底部按钮 | `_data/contact.yml` | GitHub、邮箱、RSS |
 | 侧边栏/标题的中文标签名 | `_data/locales/zh-CN.yml` | Chirpy 用标签页标题查语言包；中文标题要补对应的键，否则 `<title>` 会是空的 |
 | 图标、分享卡片 | `_design/` 里的 SVG 源文件 | 导出命令在 `_design/README.md` |
 | 字体、图标、前端库 | `assets/lib`（git 子模块，锁定在某个提交） | 站内托管，不走 CDN |
 | 写作约定、分类、标签词表 | `README.md` | 仓主定的规矩，以它为准 |
 
-**被覆盖的主题文件**：`assets/css/jekyll-theme-chirpy.scss`、`_includes/comments/giscus.html`、`_includes/metadata-hook.html`、`assets/img/favicons/site.webmanifest`、`_data/locales/zh-CN.yml`。主题升级时要逐个对照新版原文件，见 `references/maintenance.md`。
+**被覆盖的主题文件**：`assets/css/jekyll-theme-chirpy.scss`、`_layouts/home.html`（两处改动，搜索「本站改动」）、`_includes/comments/giscus.html`、`_includes/metadata-hook.html`、`assets/img/favicons/site.webmanifest`、`_data/locales/zh-CN.yml`。主题升级时要逐个对照新版原文件，见 `references/maintenance.md`。
 
 ## 提醒仓主：要具体、要能马上动手
 

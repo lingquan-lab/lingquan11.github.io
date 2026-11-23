@@ -5,11 +5,11 @@
     <rect width="150" height="150" rx="12" fill="#111111"/>
     <g transform="scale(0.293)">
       <ellipse cx="256" cy="256" rx="110" ry="152" fill="none" stroke="#eef0f3" stroke-width="54"/>
-      <line x1="198" y1="350" x2="314" y2="162" stroke="#8bc93a" stroke-width="46" stroke-linecap="round"/>
+      <line x1="198" y1="350" x2="314" y2="162" stroke="#76b900" stroke-width="46" stroke-linecap="round"/>
     </g>
   </g>
   <text x="96" y="400" font-family="Noto Sans CJK SC" font-weight="700" font-size="84" fill="#eef0f3">零醛·技术实录</text>
   <text x="96" y="462" font-family="Noto Sans CJK SC" font-size="36" fill="#a8b0bc">AI Infra 学习与项目实录</text>
-  <text x="96" y="514" font-family="Noto Sans CJK SC" font-size="30" fill="#8bc93a">CUDA·算子优化·GPU 性能工程</text>
+  <text x="96" y="514" font-family="Noto Sans CJK SC" font-size="30" fill="#76b900">CUDA·算子优化·GPU 性能工程</text>
   <text x="1104" y="580" text-anchor="end" font-family="Noto Sans CJK SC" font-size="26" fill="#6b7380">lingquan11.github.io</text>
 </svg>

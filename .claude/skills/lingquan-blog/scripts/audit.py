@@ -221,6 +221,22 @@ def check_posts(root: Path, today: dt.date, rep: Report):
 
 
 def parse_projects(root: Path):
+    """读取项目数据。优先 _data/projects.yml（2026-11-23 起项目页改为数据驱动），
+    没有则回退到旧格式 _tabs/projects.md（## 标题 + **状态**）。返回 (原文, 项目列表)。"""
+    y = root / "_data" / "projects.yml"
+    if y.exists():
+        text = y.read_text(encoding="utf-8")
+        out = []
+        for block in re.split(r"^- (?=title:)", text, flags=re.M)[1:]:
+            title = re.search(r"^title:\s*(.+)$", block, re.M)
+            status = re.search(r"^\s*status:\s*(.+)$", block, re.M)
+            out.append({
+                "title": title.group(1).strip().strip("'\"") if title else "?",
+                "status": status.group(1).strip().strip("'\"") if status else "",
+                "text": block,
+                "repos": re.findall(r"github\.com/lingquan11/([\w.-]+?)(?=[\"'\s)/]|$)", block),
+            })
+        return text, out
     f = root / "_tabs" / "projects.md"
     if not f.exists():
         return None, []
@@ -238,10 +254,16 @@ def parse_projects(root: Path):
     return text, out
 
 
+def projects_changed_date(root: Path):
+    """项目页内容最后一次变动的日期：数据文件和页面文件取较晚者。"""
+    dates = [d for d in (git_date("_data/projects.yml", root), git_date("_tabs/projects.md", root)) if d]
+    return max(dates) if dates else None
+
+
 def check_projects_local(root: Path, today: dt.date, rep: Report):
     text, projects = parse_projects(root)
     if text is None:
-        rep.add(SKIP_SEC, "projects", "没有 _tabs/projects.md。")
+        rep.add(SKIP_SEC, "projects", "没有 _data/projects.yml，也没有 _tabs/projects.md。")
         return []
     for p in projects:
         if "进行中" not in p["status"]:
@@ -281,7 +303,7 @@ def check_remote(root: Path, today: dt.date, projects: list, rep: Report):
     try:
         repos = gh_json(["api", f"users/{OWNER}/repos?per_page=100&type=owner"], root)
         linked = {r for p in projects for r in p["repos"]}
-        page_date = git_date("_tabs/projects.md", root)
+        page_date = projects_changed_date(root)
         for r in repos:
             name = r["name"]
             if r.get("fork") or r.get("archived") or r.get("private") or name == f"{OWNER}.github.io":

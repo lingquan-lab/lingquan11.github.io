@@ -1,0 +1,31 @@
+# 首页开场区（_includes/home-hero.html 读取）。
+# 每个数字都必须能在已公开的文章、关于页或仓库里找到出处，source 写明出处，url 指向它。
+# 措辞贴着仓主关于页的说法写，改动前先对照 _tabs/about.md。
+
+eyebrow: AI Infra · CUDA · 算子优化
+title: 把学到的写下来，把做过的摆出来
+subtitle: 软件侧做 C++ 性能工程，硬件侧走完数字 IC 前端与 FPGA 上板。只写真做过的，数字标明机器、尺寸和测法。
+
+stats:
+  - value: "8.45×"
+    label: 只换循环顺序，128 阶矩阵乘法加速（各尺寸跑 5 次）
+    url: /2026/11/22/cpp-matmul-retrospective-1/
+    source: 《矩阵乘法复盘（上）》、关于页
+  - value: "1859"
+    label: 1×4 脉动阵列综合出的单元数，无锁存器、无组合环、无警告
+    url: /2026/11/08/systolic-mac-1x4/
+    source: 《开学两个月小记录》、关于页
+  - value: "+0.049ns"
+    label: FPGA 上板 Setup WNS，时序收敛，板上 4/4 用例实测通过
+    url: /projects/
+    source: 关于页、项目页
+
+actions:
+  - text: 查看项目
+    url: /projects/
+    style: primary
+  - text: 阅读代表作
+    url: /2026/11/22/cpp-matmul-retrospective-1/
+    style: outline
+
+latest_heading: 最新文章

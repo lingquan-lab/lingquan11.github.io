@@ -1,0 +1,8 @@
+{%- comment -%}
+  里程碑时间线：数据来自 _data/milestones.yml。HTML 行首不要缩进。
+{%- endcomment -%}
+<ol class="zq-timeline">
+{%- for m in site.data.milestones -%}
+<li class="zq-tl-item{% if m.planned %} is-planned{% endif %}"><span class="zq-tl-date">{{ m.date }}</span><span class="zq-tl-text">{% if m.url %}<a href="{{ m.url | relative_url }}">{{ m.text }}</a>{% else %}{{ m.text }}{% endif %}</span></li>
+{%- endfor -%}
+</ol>

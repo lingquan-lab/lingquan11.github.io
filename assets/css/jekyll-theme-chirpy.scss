@@ -16,16 +16,17 @@
 
 /* ==========================================================================
    零醛 · 技术实录 —— 站点视觉
-   设计语言参考硬件厂商官网：黑底、高对比、单一亮绿强调色、直角、粗标题。
+   配色与版式全面参考英伟达官网（仓主 2026-11-23 决定）：纯黑底、英伟达绿 #76B900、
+   高对比、直角、粗标题、绿色眉题与实心绿按钮。
    绿色只用于强调（链接、激活态、悬停、标题竖条），不大面积铺色。
-   强调绿为本站自定色值，非任何品牌色。
+   不使用其标志、名称、专有字体（NVIDIA Sans）或官网图片：本站仍是仓主自己的品牌。
    ========================================================================== */
 
 /* ---------- 深色（默认） ---------- */
 :root[data-bs-theme='dark'] {
-  --zq-accent: #8bc93a; /* 装饰与文字共用：黑底对比度 10:1 */
-  --zq-accent-text: #8bc93a;
-  --zq-accent-soft: rgb(139 201 58 / 14%);
+  --zq-accent: #76b900; /* 装饰与文字共用：黑底对比度 8.7:1 */
+  --zq-accent-text: #76b900;
+  --zq-accent-soft: rgb(118 185 0 / 14%);
   --zq-line: #262626;
 
   --main-bg: #000000;
@@ -40,7 +41,7 @@
   --blockquote-border-color: var(--zq-accent);
   --blockquote-text-color: #9a9a9a;
   --link-color: var(--zq-accent-text);
-  --link-underline-color: rgb(139 201 58 / 45%);
+  --link-underline-color: rgb(118 185 0 / 45%);
 
   --button-bg: #0d0d0d;
   --btn-border-color: #2e2e2e;
@@ -86,7 +87,7 @@
 
   --highlight-bg-color: #0d0d0d;
   --language-border-color: #262626;
-  --inline-code-bg: rgb(139 201 58 / 10%);
+  --inline-code-bg: rgb(118 185 0 / 10%);
   --clipboard-checked-color: var(--zq-accent);
 
   #archives li:nth-child(odd) {
@@ -97,9 +98,9 @@
 
 /* ---------- 浅色（可切换） ---------- */
 :root[data-bs-theme='light'] {
-  --zq-accent: #6fa81e; /* 装饰用：竖条、边框、节点 */
-  --zq-accent-text: #3d6b0e; /* 文字用：白底对比度 6:1 */
-  --zq-accent-soft: rgb(111 168 30 / 12%);
+  --zq-accent: #76b900; /* 装饰用：竖条、边框、按钮底色 */
+  --zq-accent-text: #4a7a00; /* 文字用：同色相加深，白底对比度 5.1:1（#76b900 在白底只有 2.3:1） */
+  --zq-accent-soft: rgb(118 185 0 / 12%);
   --zq-line: #e3e3e3;
 
   --main-bg: #ffffff;
@@ -110,7 +111,7 @@
   --heading-color: #000000;
   --blockquote-border-color: var(--zq-accent);
   --link-color: var(--zq-accent-text);
-  --link-underline-color: rgb(61 107 14 / 35%);
+  --link-underline-color: rgb(74 122 0 / 35%);
 
   --btn-border-color: #d9d9d9;
   --menu-highlight-bg: var(--zq-accent-soft);
@@ -134,7 +135,7 @@
   --card-hover-bg: #f7f7f7;
   --card-shadow: none;
   --timeline-node-bg: var(--zq-accent);
-  --inline-code-bg: rgb(111 168 30 / 10%);
+  --inline-code-bg: rgb(118 185 0 / 10%);
 }
 
 /* ---------- 结构：两种模式通用 ---------- */
@@ -321,5 +322,394 @@ footer {
   &:hover {
     border-color: var(--zq-accent);
     color: var(--zq-accent);
+  }
+}
+
+/* ==========================================================================
+   英伟达式组件：眉题、按钮、开场区、项目卡片、时间线、代表作大卡片
+   ========================================================================== */
+
+$zq-mono: ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+
+/* 页面最顶端一条 3px 英伟达绿细线 */
+#main-wrapper {
+  border-top: 3px solid var(--zq-accent);
+}
+
+/* 眉题：标题上方的小号绿色加粗文字 */
+.zq-eyebrow {
+  display: inline-block;
+  margin: 0 0 0.6rem;
+  color: var(--zq-accent-text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* 按钮：实心绿底黑字 / 白色描边，直角 */
+.zq-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid #76b900;
+  background: #76b900;
+  color: #000000 !important;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: #8fd400;
+    border-color: #8fd400;
+  }
+
+  &.zq-btn-outline {
+    background: transparent;
+    border-color: #ffffff;
+    color: #ffffff !important;
+
+    &:hover {
+      border-color: #76b900;
+      color: #76b900 !important;
+    }
+  }
+}
+
+/* ---------- 首页开场区：两种模式下都是黑色色带 ---------- */
+.zq-hero {
+  position: relative;
+  margin: 1.5rem 0 2.5rem;
+  padding: 2.5rem 2rem 2.25rem;
+  background-color: #000000;
+  background-image: radial-gradient(rgb(118 185 0 / 18%) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  background-position: right top;
+  border-left: 4px solid #76b900;
+  color: #e6e6e6;
+
+  .zq-eyebrow {
+    color: #76b900;
+  }
+
+  .zq-hero-title {
+    margin: 0 0 0.75rem;
+    color: #ffffff;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: 0;
+  }
+
+  .zq-hero-sub {
+    max-width: 40rem;
+    margin: 0 0 2rem;
+    color: #bdbdbd;
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+}
+
+.zq-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-bottom: 2rem;
+  background: #2a2a2a; /* 用 1px 间隙做出分隔线 */
+  border: 1px solid #2a2a2a;
+}
+
+.zq-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.1rem 1rem 1rem;
+  background: #0a0a0a;
+  color: inherit !important;
+  text-decoration: none !important;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    background: #111111;
+    border-bottom-color: #76b900;
+  }
+}
+
+.zq-stat-value {
+  color: #76b900;
+  font-family: $zq-mono;
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.zq-stat-label {
+  color: #a8a8a8;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.zq-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.zq-section-title {
+  margin: 0 0 1rem;
+  border: none !important;
+  padding: 0 !important;
+  font-size: 1rem;
+
+  .zq-eyebrow {
+    margin: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .zq-hero {
+    padding: 1.75rem 1.1rem 1.5rem;
+  }
+
+  .zq-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- 首页：置顶代表作做成大卡片 ---------- */
+#post-list .card-wrapper.zq-featured {
+  border-top: 3px solid var(--zq-accent);
+
+  .card-body {
+    padding: 1.6rem 1.6rem 1.3rem;
+
+    &::before {
+      content: '代表作';
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--zq-accent-text);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+  }
+
+  .card-title {
+    font-size: 1.45rem;
+    line-height: 1.35;
+  }
+
+  .card-text {
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* 日期、标签等元信息用等宽字体 */
+.post-meta time,
+.zq-tl-date,
+.zq-project-meta,
+.zq-chip {
+  font-family: $zq-mono;
+}
+
+/* ---------- 项目页：时间线 ---------- */
+.zq-timeline {
+  list-style: none;
+  margin: 0 0 2.5rem;
+  padding: 0 0 0 1.25rem;
+  border-left: 2px solid var(--zq-line);
+
+  .zq-tl-item {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    padding: 0.45rem 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(-1.25rem - 6px);
+      top: 0.85rem;
+      width: 10px;
+      height: 10px;
+      background: var(--zq-accent);
+    }
+
+    &.is-planned {
+      color: var(--text-muted-color);
+
+      &::before {
+        background: var(--main-bg);
+        outline: 2px dashed var(--zq-accent);
+        outline-offset: -2px;
+      }
+    }
+  }
+
+  .zq-tl-date {
+    min-width: 6.5rem;
+    color: var(--text-muted-color);
+    font-size: 0.85rem;
+  }
+}
+
+/* ---------- 项目页：卡片 ---------- */
+.zq-projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.zq-project {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--zq-line);
+  border-top: 3px solid var(--zq-line);
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--zq-accent);
+  }
+
+  &.zq-status-active {
+    border-top-color: var(--zq-accent);
+  }
+
+  .zq-project-title {
+    margin: 0.6rem 0 0.75rem;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+
+  .zq-project-points {
+    margin: 0 0 0.9rem;
+    padding-left: 1.1rem;
+    font-size: 0.92rem;
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+  }
+}
+
+.zq-project-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+}
+
+.zq-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--zq-line);
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--text-muted-color);
+  }
+
+  .zq-status-active & {
+    border-color: var(--zq-accent);
+    color: var(--zq-accent-text);
+
+    &::before {
+      background: var(--zq-accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--zq-accent-soft);
+    }
+  }
+
+  .zq-status-done &::before {
+    content: '✓';
+    width: auto;
+    height: auto;
+    background: none;
+    color: var(--zq-accent-text);
+  }
+
+  .zq-status-open &::before {
+    background: var(--zq-accent);
+  }
+}
+
+.zq-project-meta {
+  color: var(--text-muted-color);
+  font-size: 0.8rem;
+}
+
+.zq-metric {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  margin-bottom: 0.9rem;
+  padding: 0.6rem 0.8rem;
+  background: var(--zq-accent-soft);
+  border-left: 3px solid var(--zq-accent);
+}
+
+.zq-metric-value {
+  color: var(--zq-accent-text);
+  font-family: $zq-mono;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.zq-metric-label {
+  color: var(--text-muted-color);
+  font-size: 0.82rem;
+}
+
+.zq-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.zq-chip {
+  padding: 0.05rem 0.5rem;
+  border: 1px solid var(--zq-line);
+  color: var(--text-muted-color);
+  font-size: 0.75rem;
+}
+
+.zq-project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--zq-line);
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  a {
+    color: var(--zq-accent-text) !important;
+    text-decoration: none !important;
+
+    &:hover {
+      text-decoration: underline !important;
+    }
   }
 }
