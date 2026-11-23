@@ -16,6 +16,18 @@ order: 0
 
 [GitHub：cpp-matmul-performance](https://github.com/lingquan11/cpp-matmul-performance) · [项目起点]({{ '/2026/10/22/cpp-matmul-start/' | relative_url }})
 
+## 2×2脉动阵列ASIC后端全流程
+
+**已完成** · 2026年11月 · Verilog / 开源EDA工具链 / SKY130
+
+- 全开源工具链（Yosys/eqy、OpenSTA、OpenROAD、Magic、Netgen）＋SKY130 PDK，形式等价→工艺映射→STA→布局布线→GDS→DRC/LVS完整跑通
+- 工艺映射2243个单元、182个触发器、面积19215µm²；详细布线违例从984收敛到0，GDS已产出
+- DRC 0违例；LVS版图与网表一致（器件2295、线网2332全对上）
+- 时序未收敛：10ns试跑约束下布线后还差0.25ns（关键路径是累加器23级进位链），等效fmax约97.6MHz
+- 未做：DFT；非流片签核（开源规则检查、STA单角、寄生为估算值）
+
+[GitHub：systolic2x2-asic-backend](https://github.com/lingquan11/systolic2x2-asic-backend) · [后端全流程实录]({{ '/2026/11/22/systolic2x2-asic-backend/' | relative_url }})
+
 ## 1×4脉动阵列乘加单元
 
 **已完成** · 独立完成 · Verilog / Python / Yosys
