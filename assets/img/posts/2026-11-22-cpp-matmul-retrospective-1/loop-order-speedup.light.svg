@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-labelledby="t d" font-family="'Source Sans Pro','Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+<title id="t">只换循环顺序：ikj 相对 ijk 的加速比</title><desc id="d">ijk/ikj：n=64 6.85×，n=128 8.45×，n=256 9.38×</desc>
+<rect width="720" height="420" fill="#ffffff"/>
+<rect x="24" y="22" width="4" height="22" fill="#76b900"/>
+<text x="36" y="39" font-size="18" font-weight="700" fill="#111111">只换循环顺序：ikj 相对 ijk 的加速比</text>
+<text x="36" y="60" font-size="12.5" fill="#444444">Day 5 · 5 次取中位数 · Intel Core Ultra 7 255HX · Release/x64</text>
+<line x1="64" x2="696" y1="356.0" y2="356.0" stroke="#9a9a9a" stroke-width="1"/>
+<text x="56" y="360.0" font-size="11.5" text-anchor="end" fill="#6b6b6b" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">0</text>
+<line x1="64" x2="696" y1="304.8" y2="304.8" stroke="#ececec" stroke-width="1"/>
+<text x="56" y="308.8" font-size="11.5" text-anchor="end" fill="#6b6b6b" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">2.5</text>
+<line x1="64" x2="696" y1="253.6" y2="253.6" stroke="#ececec" stroke-width="1"/>
+<text x="56" y="257.6" font-size="11.5" text-anchor="end" fill="#6b6b6b" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">5</text>
+<line x1="64" x2="696" y1="202.4" y2="202.4" stroke="#ececec" stroke-width="1"/>
+<text x="56" y="206.4" font-size="11.5" text-anchor="end" fill="#6b6b6b" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">7.5</text>
+<line x1="64" x2="696" y1="151.2" y2="151.2" stroke="#ececec" stroke-width="1"/>
+<text x="56" y="155.2" font-size="11.5" text-anchor="end" fill="#6b6b6b" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">10</text>
+<line x1="64" x2="696" y1="100.0" y2="100.0" stroke="#ececec" stroke-width="1"/>
+<text x="56" y="104.0" font-size="11.5" text-anchor="end" fill="#6b6b6b" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">12</text>
+<text x="36" y="82" font-size="11.5" fill="#6b6b6b">加速比（倍）</text>
+<rect x="157.3" y="215.7" width="24.0" height="140.3" fill="#5a8f00"><title>ijk/ikj · n=64：6.85×</title></rect>
+<text x="169.3" y="208.7" font-size="13" font-weight="700" text-anchor="middle" fill="#111111" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">6.85×</text>
+<text x="169.3" y="378" font-size="12.5" text-anchor="middle" fill="#444444" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">n=64</text>
+<rect x="368.0" y="182.9" width="24.0" height="173.1" fill="#5a8f00"><title>ijk/ikj · n=128：8.45×</title></rect>
+<text x="380.0" y="175.9" font-size="13" font-weight="700" text-anchor="middle" fill="#111111" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">8.45×</text>
+<text x="380.0" y="378" font-size="12.5" text-anchor="middle" fill="#444444" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">n=128</text>
+<rect x="578.7" y="163.9" width="24.0" height="192.1" fill="#5a8f00"><title>ijk/ikj · n=256：9.38×</title></rect>
+<text x="590.7" y="156.9" font-size="13" font-weight="700" text-anchor="middle" fill="#111111" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">9.38×</text>
+<text x="590.7" y="378" font-size="12.5" text-anchor="middle" fill="#444444" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">n=256</text>
+<text x="24" y="404" font-size="11" fill="#6b6b6b">数据：《矩阵乘法复盘（上）》表1（ijk/ikj）</text>
+</svg>

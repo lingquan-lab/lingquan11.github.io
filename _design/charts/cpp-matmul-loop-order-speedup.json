@@ -1,0 +1,9 @@
+{
+  "title": "只换循环顺序：ikj 相对 ijk 的加速比",
+  "subtitle": "Day 5 · 5 次取中位数 · Intel Core Ultra 7 255HX · Release/x64",
+  "source": "数据：《矩阵乘法复盘（上）》表1（ijk/ikj）",
+  "categories": ["n=64", "n=128", "n=256"],
+  "series": [{ "name": "ijk/ikj", "values": [6.85, 8.45, 9.38] }],
+  "format": "{:.2f}×",
+  "y_label": "加速比（倍）"
+}
