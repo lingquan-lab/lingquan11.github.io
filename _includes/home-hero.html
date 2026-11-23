@@ -1,0 +1,23 @@
+{%- comment -%}
+  首页开场区：数据来自 _data/home.yml，只在第一页显示（由 _layouts/home.html 引入）。
+  始终是黑色色带（深浅两种模式都一样），这是参考英伟达官网的做法。
+{%- endcomment -%}
+{%- assign h = site.data.home -%}
+<section class="zq-hero" aria-label="简介">
+<p class="zq-eyebrow">{{ h.eyebrow }}</p>
+<h1 class="zq-hero-title">{{ h.title }}</h1>
+<p class="zq-hero-sub">{{ h.subtitle }}</p>
+<div class="zq-stats">
+{%- for s in h.stats -%}
+<a class="zq-stat" href="{{ s.url | relative_url }}"><span class="zq-stat-value">{{ s.value }}</span><span class="zq-stat-label">{{ s.label }}</span></a>
+{%- endfor -%}
+</div>
+<div class="zq-actions">
+{%- for a in h.actions -%}
+<a class="zq-btn{% if a.style == 'outline' %} zq-btn-outline{% endif %}" href="{{ a.url | relative_url }}">{{ a.text }}</a>
+{%- endfor -%}
+</div>
+</section>
+{%- if h.latest_heading -%}
+<h2 class="zq-section-title"><span class="zq-eyebrow">{{ h.latest_heading }}</span></h2>
+{%- endif -%}

@@ -1,0 +1,85 @@
+# 项目页卡片（_includes/project-cards.html 读取）。规则见 .claude/skills/lingquan-blog/references/add-project.md：
+# 每个数字都要有出处；没做到的照写；状态保持最新。
+# status_kind：active（进行中，绿点）/ done（已完成，对勾）/ open（已开源）/ team（团队角色）
+# metric：卡片上突出显示的一个数字（可省略）。bullets 支持 **粗体** 和链接。
+# links 里 url 以 / 开头的是站内链接。
+
+- title: C++矩阵乘法性能分析与优化
+  status: 进行中
+  status_kind: active
+  meta: 2026年10月起 · 计划12月10日前收尾
+  stack: [C++]
+  metric: { value: "8.45×", label: 只换循环顺序，128 阶加速 }
+  bullets:
+    - 只换循环顺序：128阶快 **8.45倍**，256阶快 **9.38倍**，各尺寸跑5次、全部通过
+    - 分块实验75条全过；分块64在分块组最快，但128和256阶仍慢于ikj，负结果照实记
+    - 已完成 Day 1–8：正确性验证、计时口径、循环顺序、分块、编译选项对照；下一步 SIMD
+  links:
+    - { text: "GitHub：cpp-matmul-performance", url: "https://github.com/lingquan11/cpp-matmul-performance" }
+    - { text: 项目起点, url: /2026/10/22/cpp-matmul-start/ }
+    - { text: 复盘（上）, url: /2026/11/22/cpp-matmul-retrospective-1/ }
+
+- title: 2×2脉动阵列ASIC后端全流程
+  status: 已完成
+  status_kind: done
+  meta: 2026年11月
+  stack: [Verilog, 开源EDA工具链, SKY130]
+  metric: { value: "984→0", label: 详细布线违例收敛，GDS 已产出 }
+  bullets:
+    - 全开源工具链（Yosys/eqy、OpenSTA、OpenROAD、Magic、Netgen）＋SKY130 PDK，形式等价→工艺映射→STA→布局布线→GDS→DRC/LVS完整跑通
+    - 工艺映射2243个单元、182个触发器、面积19215µm²；详细布线违例从984收敛到0，GDS已产出
+    - DRC 0违例；LVS版图与网表一致（器件2295、线网2332全对上）
+    - 时序未收敛：10ns试跑约束下布线后还差0.25ns（关键路径是累加器23级进位链），等效fmax约97.6MHz
+    - 未做：DFT；非流片签核（开源规则检查、STA单角、寄生为估算值）
+  links:
+    - { text: "GitHub：systolic2x2-asic-backend", url: "https://github.com/lingquan11/systolic2x2-asic-backend" }
+    - { text: 后端全流程实录, url: /2026/11/22/systolic2x2-asic-backend/ }
+
+- title: 1×4脉动阵列乘加单元
+  status: 已完成
+  status_kind: done
+  meta: 独立完成
+  stack: [Verilog, Python, Yosys]
+  metric: { value: "1859", label: 综合单元数，227 个触发器 }
+  bullets:
+    - 规格：权重固定、无符号8位输入、24位累加、部分和双级寄存器对齐
+    - Python 金标准模型独立对拍，自检 testbench，4个定向用例（含满量程）功能仿真全过
+    - Yosys 综合 **1859个单元、227个触发器**，无锁存器、无组合环、无警告
+    - 未做：工艺库映射、时序分析、布局布线（通用综合）
+  links:
+    - { text: "GitHub：systolic-mac-1x4", url: "https://github.com/lingquan11/systolic-mac-1x4" }
+    - { text: 开学两个月小记录, url: /2026/11/08/systolic-mac-1x4/ }
+
+- title: FPGA上板验证
+  status: 已完成
+  status_kind: done
+  meta: 2026年11月14日 · 正点原子达芬奇Pro（XC7A100T）
+  stack: [Vivado, FPGA]
+  metric: { value: "+0.049ns", label: Setup WNS，违例终点 0 }
+  bullets:
+    - Vivado 综合实现通过，时序收敛：**Setup WNS +0.049ns**，违例终点0
+    - 比特流烧录成功，板上4个内置用例实测 **4/4 通过**
+    - 定位并解决 Digilent Adept 运行库与 Win11 不兼容导致的下载器故障
+  links: []
+
+- title: ai-chip-explorer：科研方向探索 Skill
+  status: 第一版已开源
+  status_kind: open
+  meta: 持续完善中
+  stack: []
+  bullets:
+    - 了解各方向在研究和工作中做什么，通过对话和轻量小项目找到感兴趣的方向
+    - 从零寻找科研 idea 或打磨已有想法；默认聚焦 AI 芯片
+  links:
+    - { text: "GitHub：ai-chip-explorer", url: "https://github.com/lingquan11/ai-chip-explorer" }
+    - { text: 开源说明, url: /2026/10/29/ai-chip-explorer/ }
+
+- title: RoboMaster 3SE战队电控组
+  status: 机械爪分组
+  status_kind: team
+  meta: ""
+  stack: []
+  bullets:
+    - GM6020 独立驱动；DM4310 接入战队工程当天跑通 CAN 收发、使能和反馈解析
+    - 电机内置串级PI上单变量整定，定案 KP 94、KI 2、速度上限 4rad/s
+  links: []

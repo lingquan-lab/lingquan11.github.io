@@ -1,0 +1,23 @@
+# 项目页顶部的里程碑时间线（_includes/project-timeline.html 读取），按时间顺序。
+# 只放已公开的事实；planned: true 表示计划中的节点（虚线样式），日期过了要更新或删掉。
+
+- date: 2026-10-22
+  text: 矩阵乘法性能实验立项
+  url: /2026/10/22/cpp-matmul-start/
+- date: 2026-10-29
+  text: ai-chip-explorer 第一版开源
+  url: /2026/10/29/ai-chip-explorer/
+- date: 2026-11-08
+  text: 1×4 脉动阵列乘加单元完成综合
+  url: /2026/11/08/systolic-mac-1x4/
+- date: 2026-11-14
+  text: FPGA 上板验证完成，4/4 用例通过
+- date: 2026-11-22
+  text: 2×2 脉动阵列 ASIC 后端全流程实录（GDS、DRC/LVS 跑通）
+  url: /2026/11/22/systolic2x2-asic-backend/
+- date: 2026-11-22
+  text: 矩阵乘法复盘（上）：只换循环顺序快 9.38 倍
+  url: /2026/11/22/cpp-matmul-retrospective-1/
+- date: 2026-12
+  text: 计划：矩阵乘法 SIMD 内核，项目收尾
+  planned: true

@@ -58,7 +58,7 @@ muse 长期接管网站。这一份是按周期排好的任务清单，加上主
    mkdir -p /tmp/chirpy && cd /tmp/chirpy
    gem fetch jekyll-theme-chirpy -v <旧版本> && gem unpack jekyll-theme-chirpy-<旧版本>.gem
    gem fetch jekyll-theme-chirpy -v <新版本> && gem unpack jekyll-theme-chirpy-<新版本>.gem
-   for f in assets/css/jekyll-theme-chirpy.scss _includes/comments/giscus.html _includes/metadata-hook.html assets/img/favicons/site.webmanifest _data/locales/zh-CN.yml; do
+   for f in assets/css/jekyll-theme-chirpy.scss _layouts/home.html _includes/comments/giscus.html _includes/metadata-hook.html assets/img/favicons/site.webmanifest _data/locales/zh-CN.yml; do
      echo "== $f"; diff jekyll-theme-chirpy-<旧版本>/$f jekyll-theme-chirpy-<新版本>/$f
    done
    ```
@@ -66,9 +66,10 @@ muse 长期接管网站。这一份是按周期排好的任务清单，加上主
    - `assets/css/jekyll-theme-chirpy.scss`：本站在 `/* append your custom style below */` 之后追加了全部样式，之前的部分保持与原版一致。
    - `_includes/comments/giscus.html`：只改了一行，主题映射为 `Theme.newThemeMap('light', 'transparent_dark')`。
    - `_includes/metadata-hook.html`：原版只是一个空占位。如果新版的主题切换逻辑变了（例如 localStorage 的键名不再是 `theme`，或者启动时判断能否切换的方式变了），这个脚本可能失效，必须实测首次访问是否默认深色。
+   - `_layouts/home.html`：两处改动，搜索「本站改动」：第一页插入开场区，置顶文章加 `zq-featured` 类。把新版原文件拷过来，再把这两处加回去。
    - `site.webmanifest`：只改了 `theme_color`。
    - `zh-CN.yml`：本站只补了几个 `tabs` 键，和主题自带的语言包是深度合并的，一般不受影响。
-   - 样式里用到的 CSS 变量名（`--main-bg`、`--sidebar-bg` 等）和选择器（`#sidebar`、`#post-list .card-wrapper`、`#related-posts .card` 等），要在新版的 `_sass/` 里确认还存在。
+   - 样式里用到的 CSS 变量名（`--main-bg`、`--sidebar-bg` 等）和选择器（`#sidebar`、`#post-list .card-wrapper`、`#related-posts .card`、`#main-wrapper` 等），要在新版的 `_sass/` 里确认还存在。
 3. **同步 starter 的文件**：对比 [chirpy-starter](https://github.com/cotes2020/chirpy-starter) 的 `Gemfile`、`.github/workflows/pages-deploy.yml`、`_plugins/`、`_tabs/` 和 `_config.yml` 里新增的配置项。只合并上游的新变化，不要覆盖本站的设置。
 4. **静态资源包**：看 starter 的 `assets/lib` 子模块现在指向哪个提交（`git ls-tree HEAD assets/lib`），把本仓库的子模块更新到同一个提交：
    ```bash

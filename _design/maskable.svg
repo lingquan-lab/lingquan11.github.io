@@ -2,6 +2,6 @@
   <rect width="512" height="512" fill="#000000"/>
   <g transform="translate(256 256) scale(0.72) translate(-256 -256)">
     <ellipse cx="256" cy="256" rx="110" ry="152" fill="none" stroke="#eef0f3" stroke-width="54"/>
-    <line x1="198" y1="350" x2="314" y2="162" stroke="#8bc93a" stroke-width="46" stroke-linecap="round"/>
+    <line x1="198" y1="350" x2="314" y2="162" stroke="#76b900" stroke-width="46" stroke-linecap="round"/>
   </g>
 </svg>
