@@ -1,7 +1,8 @@
 # 项目页卡片（_includes/project-cards.html 读取）。规则见 .claude/skills/lingquan-blog/references/add-project.md：
 # 每个数字都要有出处；没做到的照写；状态保持最新。
 # status_kind：active（进行中，绿点）/ done（已完成，对勾）/ open（已开源）/ team（团队角色）
-# metric：卡片上突出显示的一个数字（可省略）。bullets 支持 **粗体** 和链接。
+# metric：卡片上突出显示的一个数字（可省略）。image：卡片顶部照片 { path, alt }（可省略，图片先过 prep_image.py --kind cover）。
+# bullets 支持 **粗体** 和链接。
 # links 里 url 以 / 开头的是站内链接。
 
 - title: C++矩阵乘法性能分析与优化
@@ -55,6 +56,7 @@
   status_kind: done
   meta: 2026年11月14日 · 正点原子达芬奇Pro（XC7A100T）
   stack: [Vivado, FPGA]
+  image: { path: /assets/img/projects/fpga-board.webp, alt: 正点原子达芬奇Pro开发板上电运行 }
   metric: { value: "+0.049ns", label: Setup WNS，违例终点 0 }
   bullets:
     - Vivado 综合实现通过，时序收敛：**Setup WNS +0.049ns**，违例终点0

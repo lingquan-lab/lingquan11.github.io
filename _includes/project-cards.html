@@ -4,6 +4,9 @@
 <div class="zq-projects">
 {%- for p in site.data.projects -%}
 <article class="zq-project zq-status-{{ p.status_kind | default: 'done' }}">
+{%- if p.image -%}
+<img class="zq-project-img" src="{{ p.image.path | relative_url }}" alt="{{ p.image.alt }}" width="1200" height="630" loading="lazy">
+{%- endif -%}
 <div class="zq-project-head"><span class="zq-badge">{{ p.status }}</span>{% if p.meta != "" %}<span class="zq-project-meta">{{ p.meta }}</span>{% endif %}</div>
 <h3 class="zq-project-title" data-toc-skip>{{ p.title }}</h3>
 {%- if p.metric -%}

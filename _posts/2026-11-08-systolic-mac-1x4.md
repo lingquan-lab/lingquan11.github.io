@@ -4,6 +4,9 @@ title: "开学两个月小记录：1×4脉动阵列乘加单元"
 date: 2026-11-08 20:00:00 +0800
 categories: 项目实录
 tags: [数字IC, 脉动阵列]
+image:
+  path: /assets/img/posts/2026-11-08-systolic-mac-1x4/cover.webp
+  alt: Vivado 行为仿真波形：按键触发后 done 拉高，result_y 输出 70
 ---
 
 开学两个月，留个小记录。
