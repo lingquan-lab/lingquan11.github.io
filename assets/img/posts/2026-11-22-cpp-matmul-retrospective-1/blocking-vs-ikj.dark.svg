@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-labelledby="t d" font-family="'Source Sans Pro','Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+<title id="t">分块相对 ikj 的耗时变化（正值 = 更慢）</title><desc id="d">blocked_16：n=64 +41.4%，n=128 +54.3%，n=256 +59.6%；blocked_32：n=64 +15.7%，n=128 +29.4%，n=256 +36.2%；blocked_64：n=64 -2.1%，n=128 +11.0%，n=256 +14.0%</desc>
+<rect width="720" height="420" fill="#000000"/>
+<rect x="24" y="22" width="4" height="22" fill="#76b900"/>
+<text x="36" y="39" font-size="18" font-weight="700" fill="#f2f2f2">分块相对 ikj 的耗时变化（正值 = 更慢）</text>
+<text x="36" y="60" font-size="12.5" fill="#b5b5b5">Day 7 · 5 次取中位数 · 三种块大小都没有跑赢朴素 ikj</text>
+<rect x="36" y="72" width="11" height="11" fill="#3f6a00"/>
+<text x="52" y="82" font-size="12.5" fill="#b5b5b5" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">blocked_16</text>
+<rect x="153.5" y="72" width="11" height="11" fill="#5e9a00"/>
+<text x="169.5" y="82" font-size="12.5" fill="#b5b5b5" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">blocked_32</text>
+<rect x="271.0" y="72" width="11" height="11" fill="#8fd400"/>
+<text x="287.0" y="82" font-size="12.5" fill="#b5b5b5" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">blocked_64</text>
+<line x1="64" x2="696" y1="356.0" y2="356.0" stroke="#222222" stroke-width="1"/>
+<text x="56" y="360.0" font-size="11.5" text-anchor="end" fill="#8a8a8a" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">-20</text>
+<line x1="64" x2="696" y1="309.2" y2="309.2" stroke="#4a4a4a" stroke-width="1"/>
+<text x="56" y="313.2" font-size="11.5" text-anchor="end" fill="#8a8a8a" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">0</text>
+<line x1="64" x2="696" y1="262.4" y2="262.4" stroke="#222222" stroke-width="1"/>
+<text x="56" y="266.4" font-size="11.5" text-anchor="end" fill="#8a8a8a" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">20</text>
+<line x1="64" x2="696" y1="215.6" y2="215.6" stroke="#222222" stroke-width="1"/>
+<text x="56" y="219.6" font-size="11.5" text-anchor="end" fill="#8a8a8a" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">40</text>
+<line x1="64" x2="696" y1="168.8" y2="168.8" stroke="#222222" stroke-width="1"/>
+<text x="56" y="172.8" font-size="11.5" text-anchor="end" fill="#8a8a8a" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">60</text>
+<line x1="64" x2="696" y1="122.0" y2="122.0" stroke="#222222" stroke-width="1"/>
+<text x="56" y="126.0" font-size="11.5" text-anchor="end" fill="#8a8a8a" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">80</text>
+<text x="36" y="104" font-size="11.5" fill="#8a8a8a">相对 ikj 的耗时变化（%）</text>
+<rect x="131.3" y="212.3" width="24.0" height="96.9" fill="#3f6a00"><title>blocked_16 · n=64：+41.4%</title></rect>
+<rect x="157.3" y="272.5" width="24.0" height="36.7" fill="#5e9a00"><title>blocked_32 · n=64：+15.7%</title></rect>
+<rect x="183.3" y="309.2" width="24.0" height="4.9" fill="#8fd400"><title>blocked_64 · n=64：-2.1%</title></rect>
+<text x="211.3" y="318.1" font-size="11.5" font-weight="700" text-anchor="start" fill="#f2f2f2" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">-2.1%</text>
+<text x="169.3" y="378" font-size="12.5" text-anchor="middle" fill="#b5b5b5" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">n=64</text>
+<rect x="342.0" y="182.1" width="24.0" height="127.1" fill="#3f6a00"><title>blocked_16 · n=128：+54.3%</title></rect>
+<rect x="368.0" y="240.4" width="24.0" height="68.8" fill="#5e9a00"><title>blocked_32 · n=128：+29.4%</title></rect>
+<rect x="394.0" y="283.5" width="24.0" height="25.7" fill="#8fd400"><title>blocked_64 · n=128：+11.0%</title></rect>
+<text x="422.0" y="287.5" font-size="11.5" font-weight="700" text-anchor="start" fill="#f2f2f2" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">+11.0%</text>
+<text x="380.0" y="378" font-size="12.5" text-anchor="middle" fill="#b5b5b5" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">n=128</text>
+<rect x="552.7" y="169.7" width="24.0" height="139.5" fill="#3f6a00"><title>blocked_16 · n=256：+59.6%</title></rect>
+<rect x="578.7" y="224.5" width="24.0" height="84.7" fill="#5e9a00"><title>blocked_32 · n=256：+36.2%</title></rect>
+<rect x="604.7" y="276.4" width="24.0" height="32.8" fill="#8fd400"><title>blocked_64 · n=256：+14.0%</title></rect>
+<text x="632.7" y="280.4" font-size="11.5" font-weight="700" text-anchor="start" fill="#f2f2f2" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">+14.0%</text>
+<text x="590.7" y="378" font-size="12.5" text-anchor="middle" fill="#b5b5b5" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono',Menlo,Consolas,monospace">n=256</text>
+<text x="24" y="404" font-size="11" fill="#8a8a8a">数据：《矩阵乘法复盘（上）》表3</text>
+</svg>

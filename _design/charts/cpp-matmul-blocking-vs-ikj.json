@@ -1,0 +1,15 @@
+{
+  "title": "分块相对 ikj 的耗时变化（正值 = 更慢）",
+  "subtitle": "Day 7 · 5 次取中位数 · 三种块大小都没有跑赢朴素 ikj",
+  "source": "数据：《矩阵乘法复盘（上）》表3",
+  "categories": ["n=64", "n=128", "n=256"],
+  "series": [
+    { "name": "blocked_16", "values": [41.4, 54.3, 59.6] },
+    { "name": "blocked_32", "values": [15.7, 29.4, 36.2] },
+    { "name": "blocked_64", "values": [-2.1, 11.0, 14.0] }
+  ],
+  "ordered": true,
+  "format": "{:+.1f}%",
+  "label": ["blocked_64"],
+  "y_label": "相对 ikj 的耗时变化（%）"
+}

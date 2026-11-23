@@ -4,6 +4,9 @@ title: "矩阵乘法复盘（上）：只换循环顺序，快了9.38倍；分�
 date: 2026-11-22 20:34:00 +0800
 categories: 项目实录
 tags: [C++, 矩阵乘法, 性能优化]
+image:
+  path: /assets/img/posts/2026-11-22-cpp-matmul-retrospective-1/cover.webp
+  alt: 分块相对 ikj 的速度：n=64/128/256，每种配置计时 5 次（2026-10-27 存档数据）
 pin: true
 ---
 

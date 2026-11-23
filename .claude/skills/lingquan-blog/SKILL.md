@@ -57,6 +57,7 @@ muse 知道仓主最近在忙什么、学了什么、什么时候考试、哪个
 | "网站缺什么""我该做什么"、每周体检、定时提醒 | `references/audit-and-reminders.md`，并运行 `scripts/audit.py` |
 | 主题升级、构建报错、依赖更新、链接失效、长期维护任务 | `references/maintenance.md` |
 | 任何改动做完之后，准备交 PR | `references/pr-and-checks.md`，并运行 `scripts/verify.sh` |
+| 仓主发来图片（封面、头像、正文配图），或要把数据画成图表 | `references/images-and-charts.md`，用 `scripts/prep_image.py`、`scripts/make_chart.py` |
 | 改样式、图标、评论、统计等站点配置 | 先看下面的「站点地图」，再按 `pr-and-checks.md` 交付 |
 
 ## 站点地图（不在仓库里显而易见的部分）
@@ -70,6 +71,8 @@ muse 知道仓主最近在忙什么、学了什么、什么时候考试、哪个
 | 首次访问默认深色 | `_includes/metadata-hook.html` | 不能直接写死 `data-bs-theme`，那样会禁用深浅切换 |
 | 评论区深色主题 | `_includes/comments/giscus.html` | 覆盖主题原模板，只改了一行（`transparent_dark`） |
 | 关于页 | `_tabs/about.md` | 仓主本人语气，改动必须经仓主确认（项目页见上一行，由维护者按事实维护） |
+| 文章封面、正文配图、数据图 | `assets/img/posts/<文章文件名>/` | 图表规格和数据在 `_design/charts/`；见 `references/images-and-charts.md` |
+| 侧边栏头像 | `_config.yml` 的 `avatar` | 换成站内文件 `assets/img/avatar.webp` 后，不再依赖 github.com |
 | 侧边栏底部按钮 | `_data/contact.yml` | GitHub、邮箱、RSS |
 | 侧边栏/标题的中文标签名 | `_data/locales/zh-CN.yml` | Chirpy 用标签页标题查语言包；中文标题要补对应的键，否则 `<title>` 会是空的 |
 | 图标、分享卡片 | `_design/` 里的 SVG 源文件 | 导出命令在 `_design/README.md` |
@@ -99,6 +102,9 @@ muse 知道仓主最近在忙什么、学了什么、什么时候考试、哪个
 - `references/audit-and-reminders.md`：体检项目、提醒阈值、报告模板、定时运行
 - `references/maintenance.md`：muse 的长期任务清单、主题升级流程、排障
 - `references/pr-and-checks.md`：分支、PR 模板、自查清单（含手机宽度检查脚本）
+- `references/images-and-charts.md`：封面、头像、正文配图、数据图表的处理和接入
 - `scripts/audit.py`：只读体检，输出给仓主的提醒报告
 - `scripts/verify.sh`：生产构建 + htmlproofer + 正文改动守卫 + 标签词表检查
+- `scripts/prep_image.py`：图片去元数据（含 GPS）、转正、裁切、转 WebP
+- `scripts/make_chart.py`：按网站配色生成深浅两版 SVG 柱状图
 - `log.md`：维护日志

@@ -14,8 +14,19 @@
 - 仓主不在国内，不必再提国内访问问题。（2026-11-22）
 - 标签只用 README 词表里的，新增需仓主批准。（2026-11-22）
 - 新文章按六段模板用 `##` 分段；存量文章不回改。（2026-11-22）
+- 采纳：文章配封面图（仓主为哪篇发图，就给哪篇加 `image` 字段）、以后的文章多用图表（维护者出图，仓主插入正文）、换站内头像（用哪张由仓主定）。（2026-11-23）
 
 ## 日志
+
+### 2026-11-23 · Claude · 图片与图表工具（分支 feat/images-charts）
+- 新增 `scripts/prep_image.py`（去元数据含 GPS、转正、裁切、转 WebP）和 `scripts/make_chart.py`（深浅两版 SVG 柱状图，配色经 dataviz 校验）。
+- 新增 `references/images-and-charts.md`，SKILL.md 和 publish-post.md 接入。
+- 样例图：《矩阵乘法复盘（上）》表1（加速比）、表3（分块相对 ikj），规格在 `_design/charts/`，图在 `assets/img/posts/2026-11-22-cpp-matmul-retrospective-1/`，尚未插入正文（等仓主决定）。
+- 仓主 11-23 发来 5 张图，处理后接入（参数见 PR 描述）：
+  - 封面（各文章 front matter 只加了 `image`）：复盘（上）用仓主自己的分块对比图（`--fit` 补白）；1×4 用 Vivado 仿真波形（`--crop` 只取波形区）；ai-chip-explorer 用仓库主页截图（`--crop`）；2×2 后端用 GDS 版图（居中裁切）。《项目起点》没有配图。
+  - 开发板实拍：按仓主要求转正（`--rotate -90`），裁掉了笔记本上的 NVIDIA、Legion 等标志，放在项目页 FPGA 卡片顶部（`_data/projects.yml` 新增可选字段 `image`）。
+  - `prep_image.py` 新增 `--rotate`、`--crop`、`--fit/--pad`。
+- 待办：仓主还没有发头像，`_config.yml` 的 `avatar` 仍是 GitHub 外链。收到后单独处理（`--kind avatar`）。
 
 ### 2026-11-23 · Claude · 英伟达配色 + 首页开场区 + 项目页改版（分支 feat/nvidia-style-home）
 - 仓主决定改为英伟达配色、全面模仿：强调色 `#8bc93a` → `#76B900`；浅色模式文字绿 `#4a7a00`。图标、分享图同步换色。

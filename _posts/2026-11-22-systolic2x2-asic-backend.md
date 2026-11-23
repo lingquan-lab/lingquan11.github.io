@@ -4,6 +4,9 @@ title: "2×2脉动阵列数字IC后端全流程实录"
 date: 2026-11-22 20:30:00 +0800
 categories: 项目实录
 tags: [数字IC, 脉动阵列]
+image:
+  path: /assets/img/posts/2026-11-22-systolic2x2-asic-backend/cover.webp
+  alt: 2×2 脉动阵列的 GDS 版图（截取中部）
 ---
 
 空闲时间把2×2脉动阵列的数字IC后端完整跑通。https://github.com/lingquan11/systolic2x2-asic-backend  ＜这是我最后一篇发在空间/朋友圈的长文。从这篇起，学习笔记都发在这个博客上。
