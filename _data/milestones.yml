@@ -19,6 +19,9 @@
 - date: 2026-11-22
   text: 矩阵乘法复盘（上）：只换循环顺序快 9.38 倍
   url: /2026/11/22/cpp-matmul-retrospective-1/
+- date: 2026-11-24
+  text: 矩阵乘法复盘（中）：从计时到诊断
+  url: /2026/11/24/cpp-matmul-retrospective-2/
 - date: 2026-12
   text: 计划：矩阵乘法 SIMD 内核，项目收尾
   planned: true
