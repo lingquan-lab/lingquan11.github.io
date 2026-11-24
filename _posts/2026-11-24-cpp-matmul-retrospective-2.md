@@ -171,4 +171,3 @@ $$T_{D,\text{pred}} = 100 \times 1.10 \times 1.08 = 118.8\text{ }\mu\text{s}$$
   * 方法学习报告：`journey/archive/experiments/reports/day08-performance-analysis.md`
   * 材料完整性核对：`journey/archive/notes/supplements/day08-completeness-check.md`
 
-本文首发于我的个人博客「零醛·技术实录」，原文与后续更新：[https://lingquan11.github.io](https://lingquan11.github.io)
