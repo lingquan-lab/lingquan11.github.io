@@ -18,6 +18,12 @@
 
 ## 日志
 
+### 2026-11-24 · 新文章：《1×4脉动阵列乘加单元：从RTL到上板验证》（分支 content/1x4-fpga-post）
+- 仓主交稿上站（方式 B）：仓主于 2026-11-24 交来终版全文，正文以该终版为准；与终版仅有 3 处差异，均为上板地点按仓主更正由「九龙湖校区实验室」改为「RM工作室」，逐处清单见 PR 描述。
+- 配图 7 张与封面 1 张均过 prep_image.py（去元数据、转 WebP）；封面用仓主 2026-11-23 发来的上板现场照片。
+- 配套：项目页「FPGA 上板验证」卡片补文章链接；时间线 2026-11-14 节点补文章链接。
+- 组装环境无 Ruby，verify.sh 与 375px 浏览器检查未在组装侧执行，PR 描述中如实标注、留待提交环境补跑。
+
 ### 2026-11-23 · Claude · 图片与图表工具（分支 feat/images-charts）
 - 新增 `scripts/prep_image.py`（去元数据含 GPS、转正、裁切、转 WebP）和 `scripts/make_chart.py`（深浅两版 SVG 柱状图，配色经 dataviz 校验）。
 - 新增 `references/images-and-charts.md`，SKILL.md 和 publish-post.md 接入。

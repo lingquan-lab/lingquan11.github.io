@@ -12,6 +12,7 @@
   url: /2026/11/08/systolic-mac-1x4/
 - date: 2026-11-14
   text: FPGA 上板验证完成，4/4 用例通过
+  url: /2026/11/23/1x4-systolic-mac-fpga/
 - date: 2026-11-22
   text: 2×2 脉动阵列 ASIC 后端全流程实录（GDS、DRC/LVS 跑通）
   url: /2026/11/22/systolic2x2-asic-backend/

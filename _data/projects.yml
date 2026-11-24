@@ -62,7 +62,8 @@
     - Vivado 综合实现通过，时序收敛：**Setup WNS +0.049ns**，违例终点0
     - 比特流烧录成功，板上4个内置用例实测 **4/4 通过**
     - 定位并解决 Digilent Adept 运行库与 Win11 不兼容导致的下载器故障
-  links: []
+  links:
+    - { text: "长文实录：从RTL到上板验证", url: /2026/11/23/1x4-systolic-mac-fpga/ }
 
 - title: ai-chip-explorer：科研方向探索 Skill
   status: 第一版已开源
