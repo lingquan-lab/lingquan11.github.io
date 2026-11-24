@@ -33,3 +33,6 @@ Thumbs.db
 
 # Python cache (维护脚本)
 __pycache__/
+
+# 发知乎/掘金的导出副本（export_post.py）
+_export/

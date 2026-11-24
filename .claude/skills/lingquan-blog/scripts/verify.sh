@@ -2,7 +2,8 @@
 # 交 PR 前的自动检查。在博客仓库内运行：
 #   .claude/skills/lingquan-blog/scripts/verify.sh [基准引用，默认 origin/main]
 # 1) 生产构建（不能有 warning/error） 2) htmlproofer（与线上部署参数相同）
-# 3) 正文守卫 + 标签词表（check_content.py） 4) 列出构建出的标签页
+# 3) Markdown 渲染检查（lint_markdown.py：表格前后空行等 kramdown 坑，并核对页面里的 <table> 数）
+# 4) 正文守卫 + 标签词表（check_content.py） 5) 列出构建出的标签页
 # 任何一步失败，退出码非 0。浏览器检查不在这里，见 references/pr-and-checks.md 3.2。
 set -uo pipefail
 
@@ -37,6 +38,13 @@ if [ -d _site ]; then
   else
     cat "$LOG"; echo "  ✗ 未通过"; fail=1
   fi
+fi
+
+echo
+if [ -d _site ]; then
+  python3 "$HERE/lint_markdown.py" --site _site || fail=1
+else
+  python3 "$HERE/lint_markdown.py" || fail=1
 fi
 
 echo
