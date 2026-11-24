@@ -57,6 +57,7 @@ muse 知道仓主最近在忙什么、学了什么、什么时候考试、哪个
 | "网站缺什么""我该做什么"、每周体检、定时提醒 | `references/audit-and-reminders.md`，并运行 `scripts/audit.py` |
 | 主题升级、构建报错、依赖更新、链接失效、长期维护任务 | `references/maintenance.md` |
 | 任何改动做完之后，准备交 PR | `references/pr-and-checks.md`，并运行 `scripts/verify.sh` |
+| 文章要同步发到知乎、掘金 | `references/cross-post.md`，用 `scripts/export_post.py` |
 | 仓主发来图片（封面、头像、正文配图），或要把数据画成图表 | `references/images-and-charts.md`，用 `scripts/prep_image.py`、`scripts/make_chart.py` |
 | 改样式、图标、评论、统计等站点配置 | 先看下面的「站点地图」，再按 `pr-and-checks.md` 交付 |
 
@@ -101,10 +102,13 @@ muse 知道仓主最近在忙什么、学了什么、什么时候考试、哪个
 - `references/add-project.md`：新项目仓库上站、项目进展同步
 - `references/audit-and-reminders.md`：体检项目、提醒阈值、报告模板、定时运行
 - `references/maintenance.md`：muse 的长期任务清单、主题升级流程、排障
+- `references/cross-post.md`：同步发知乎、掘金
 - `references/pr-and-checks.md`：分支、PR 模板、自查清单（含手机宽度检查脚本）
 - `references/images-and-charts.md`：封面、头像、正文配图、数据图表的处理和接入
 - `scripts/audit.py`：只读体检，输出给仓主的提醒报告
-- `scripts/verify.sh`：生产构建 + htmlproofer + 正文改动守卫 + 标签词表检查
+- `scripts/verify.sh`：生产构建 + htmlproofer + Markdown 渲染检查 + 正文改动守卫 + 标签词表检查
+- `scripts/lint_markdown.py`：查 kramdown 会渲染坏的写法（表格前后空行等），可对照构建结果核对表格数
+- `scripts/export_post.py`：把文章转成知乎、掘金用的 Markdown（绝对图片地址、去掉站内专用写法、表格可转图片）
 - `scripts/prep_image.py`：图片去元数据（含 GPS）、转正、裁切、转 WebP
 - `scripts/make_chart.py`：按网站配色生成深浅两版 SVG 柱状图
 - `log.md`：维护日志
