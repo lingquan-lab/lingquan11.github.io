@@ -7,6 +7,7 @@ tags: [脉动阵列]
 image:
   path: /assets/img/posts/1x4-systolic-mac-fpga/cover.webp
   alt: 达芬奇Pro开发板上板实测，电源灯与LED0亮起
+pin: true
 ---
 
 ## 1. 问题与背景
