@@ -4,6 +4,9 @@ title: "矩阵乘法复盘（中）：从计时到诊断"
 date: 2026-11-24 22:00:00 +0800
 categories: 项目实录
 tags: [C++, 矩阵乘法, 性能优化]
+image:
+  path: /assets/img/posts/2026-11-24-cpp-matmul-retrospective-2/cover.webp
+  alt: Intel Top-Down（TMAM）流水线槽位分类树：Pipeline Slots 分 Retiring、Bad Speculation、Frontend Bound、Backend Bound（图源 Intel TMAM，经社区转载）
 ---
 
 ## 1. 问题与背景：从计时现象到归因缺口
